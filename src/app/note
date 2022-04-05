@@ -1,0 +1,13 @@
+ANGULAR
+
+create project => ng new project_name / ng new project_name --routng
+to run a angular project => ng server / ng serve --open
+to create a component => ng g c component_name
+
+
+
+
+Angular bascs
+
+1. modules-to mport lbrares - root module - AppModule
+2. component to get (HTML   CSS    TS) 
