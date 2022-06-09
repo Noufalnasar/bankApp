@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -13,45 +14,67 @@ export class LoginComponent implements OnInit {
   acno=""
   pwd=""
 
+
+  loginform=this.fb.group({
+  acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+  pwd:['',[Validators.required,Validators.pattern('[a-zA-z0-9]*')]] 
+  })
+
  
-  constructor(private router:Router,private ds:DataService) { }
+  constructor(private router:Router,private ds:DataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
-acnoChange(event:any){
-  this.acno=event.target.value
-  console.log(this.acno);
+// acnoChange(event:any){
+//   this.acno=event.target.value
+//   console.log(this.acno);
   
   
-}
-pwdChange(event:any){
-  this.pwd=event.target.value
-  console.log(this.pwd);
+// }
+// pwdChange(event:any){
+//   this.pwd=event.target.value
+//   console.log(this.pwd);
 
-}
+// }
 
 // one way bndng / two way bndng
 Login(){
-  var acno=this.acno
-  var pwd=this.pwd
+  var acno=this.loginform.value.acno
+  var pwd=this.loginform.value.pwd
 
-  let database=this.ds.database
-
-  if(acno in database){
-    if(pwd ==database[acno]["password"]){
-     alert("Login Successful")
-     this.router.navigateByUrl("dashboard")
+  if(this.loginform.valid){
+    const result = this.ds.login(acno, pwd);
+    if (result) {
+      alert("login successfull...!!");
+      this.router.navigateByUrl("dashboard");
     }
-    else{
-      alert("Invalid Password")
+    else {
+      alert("user does not exist");
     }
-
   }
   else{
-    alert("user does not exist")
+   alert("invalid form")
   }
+ 
 }
+
 }
+
+//   if(acno in database){
+//     if(pwd ==database[acno]["password"]){
+//      alert("Login Successful")
+//      this.router.navigateByUrl("dashboard")
+//     }
+//     else{
+//       alert("Invalid Password")
+//     }
+
+//   }
+//   else{
+//     alert("user does not exist")
+//   }
+// }
+// }
 //template referencing variables
 // Login(a:any,p:any){
 //   var acno=a.value

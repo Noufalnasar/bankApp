@@ -21,6 +21,7 @@
                         <input type="text" name="uname" formControlName="uname" class="form-control" placeholder="Username Please" id="login_username" required>
                         
                     </div>
+                    <div  *ngIf="this.registerForm.get('uname')?.touched&&this.registerForm.get('uname')?.errors" style="color: red;" >Invalid Username</div>
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -28,14 +29,16 @@
                           <input type="text" name="acno" formControlName="acno" class="form-control" placeholder="Account Number" id="login_accno" required>
                           
                       </div>
-                     
+                      <div  *ngIf="this.registerForm.get('acno')?.touched&&this.registerForm.get('acno')?.errors" style="color: red;" >Invalid Account Number</div>
+
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <input type="password" name="pwd" formControlName="pwd"  class="form-control" placeholder="password" id="login_password" required>
                       </div>
-                      
+                      <div  *ngIf="this.registerForm.get('pwd')?.touched&&this.registerForm.get('pwd')?.errors" style="color: red;" >Invalid password</div>
+
                       <div class="form-group">
                           <input type="submit" value="Register"  class="btn float-right login_btn " style="width:50%" >
                       </div>

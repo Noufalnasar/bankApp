@@ -45,6 +45,8 @@ Angular bascs
 
   8. string to int = use "ParseInt(variable)"
 
+     8.1 any to string = use JSON.stringify(variable)
+
   9. Angular Forms
 
     9.1 Template driven Forms - first design html
@@ -54,3 +56,20 @@ Angular bascs
     9.2.1 Reactive Forms - add Validation:Import ReactiveFormsModule
 
                          -form groups,form array,form control
+
+  10.Angular Directives - To Manipulate DOM
+    
+    10.1 component Directives
+
+    10.2 Structural Directives -To Chnage DOM structure
+
+      10.2.1 ngIF - Syntax: *ngIf="condition"
+
+  11. Local Storage - to permanently store data in browser
+
+      11.1 setItem()
+
+      11.2 getItem()
+
+      11.3 removeItem()
+       

@@ -14,21 +14,24 @@
                   
               </div>
               <div class="card-body">
-                  <form  (ngSubmit)="Login()">
+                  <form [formGroup]="loginform" (ngSubmit)="Login()">
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
-                          <input type="text"name="acno" [(ngModel)]="acno" class="form-control" [placeholder]="accnum" id="login_accno" required>
+                          <input type="text"name="acno" formControlName="acno" class="form-control" [placeholder]="accnum" id="login_accno" required>
                           
                       </div>
+                      <div  *ngIf="this.loginform.get('acno')?.touched&&this.loginform.get('acno')?.errors" style="color: red;" >Invalid Account Number</div>
+
                       <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
-                          <input type="password" name="pwd" [(ngModel)]="pwd"  class="form-control" placeholder="password" id="login_password" required>
+                          <input type="password" name="pwd" formControlName="pwd"  class="form-control" placeholder="password" id="login_password" required>
                       </div>
-                      
+                      <div  *ngIf="this.loginform.get('pwd')?.touched&&this.loginform.get('pwd')?.errors" style="color: red;" >Invalid Account Number</div>
+
                       <div class="form-group">
                           <input type="submit" value="Login"  class="btn float-right login_btn " style="width:50%" >
                       </div>
