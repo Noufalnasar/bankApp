@@ -57,13 +57,17 @@ Angular bascs
 
                          -form groups,form array,form control
 
-  10.Angular Directives - To Manipulate DOM
+  10.Angular Directives - To Manipulate DOM, 
     
     10.1 component Directives
 
     10.2 Structural Directives -To Chnage DOM structure
 
       10.2.1 ngIF - Syntax: *ngIf="condition"
+
+      10.2.2 ngFor -Syntax:*ngFor=" let iterator of array-name"
+
+   
 
   11. Local Storage - to permanently store data in browser
 
@@ -72,4 +76,23 @@ Angular bascs
       11.2 getItem()
 
       11.3 removeItem()
-       
+
+  12. Anglar Pipes - to Covert the data Format
+   
+      Syntax:expression  | pipe opertor [ :pipe Arguments]
+
+  13. Parent to Child Communication
+
+      13.1 Parent to Child : using 'Input Decorator' 
+
+      13.2 Child to Parent :Using 'Output Decorator'
+  
+  14. attribute Directives     
+
+       14.1 Predefined - eg:ngClass
+   
+       14.2 Userdefined
+
+  15. Event emitter - to generate userdefined events
+
+      15.1 emit() - to occur the event

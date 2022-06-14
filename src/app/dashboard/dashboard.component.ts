@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -30,12 +31,19 @@ export class DashboardComponent implements OnInit {
     })
 
     user:any
+    lDate:any
+    Acno=""
 
-  constructor(private ds:DataService,private fb:FormBuilder) {
+  constructor(private ds:DataService,private fb:FormBuilder,private router:Router) {
     this.user=this.ds.currentUser
+    this.lDate=new Date()
    }
 
   ngOnInit(): void {
+    if(!localStorage.getItem("currentAcno")){
+      alert("Please Log In")
+      this.router.navigateByUrl("")
+    }
   }
 
 
@@ -60,4 +68,16 @@ export class DashboardComponent implements OnInit {
       alert(amount1+"success and new balance is :"+result1)
     }
   }
+  logout(){
+    localStorage.removeItem("currentUser")
+    localStorage.removeItem("currentAcno")
+    this.router.navigateByUrl("")
+    
+  }
+  deleteAccount(){
+    this.Acno=JSON.parse(localStorage.getItem("currentAcno")||' ')
+    }
+    cancel(){
+      this.Acno=""
+    }
 }

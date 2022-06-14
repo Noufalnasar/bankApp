@@ -1,0 +1,10 @@
+table,tr,th{
+    border: 2px black solid;
+    padding: 30px;
+    padding-right: 100px;
+    padding-left: 100px;
+    margin-left: 500px;
+    margin-right: auto;
+    background-color: black;
+    opacity: 0.8;
+}
