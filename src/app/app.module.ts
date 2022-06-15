@@ -10,6 +10,7 @@ import { RegstrComponent } from './regstr/RegstrComponent';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { AnimationDemoComponent } from './animation-demo/animation-demo.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { HighlightDirective } from './Directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     RegstrComponent,
     TransactionHistoryComponent,
     AnimationDemoComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
